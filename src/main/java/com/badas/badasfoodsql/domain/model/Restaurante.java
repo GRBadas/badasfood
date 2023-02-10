@@ -1,22 +1,23 @@
 package com.badas.badasfoodsql.domain.model;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Cozinha {
-	
+public class Restaurante {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column
 	private String nome;
+	
+	@Column(name = "taxa_frete")
+	private BigDecimal taxaFrete;
 
 	public Long getId() {
 		return id;
@@ -24,6 +25,10 @@ public class Cozinha {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public BigDecimal getTaxaFrete() {
+		return taxaFrete;
 	}
 
 	public void setId(Long id) {
@@ -34,9 +39,13 @@ public class Cozinha {
 		this.nome = nome;
 	}
 
+	public void setTaxaFrete(BigDecimal taxaFrete) {
+		this.taxaFrete = taxaFrete;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nome);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -47,10 +56,11 @@ public class Cozinha {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cozinha other = (Cozinha) obj;
-		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome);
+		Restaurante other = (Restaurante) obj;
+		return Objects.equals(id, other.id);
 	}
 	
 	
-
+	
+	
 }
