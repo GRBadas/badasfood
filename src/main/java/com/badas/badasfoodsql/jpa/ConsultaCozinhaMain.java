@@ -1,6 +1,5 @@
 package com.badas.badasfoodsql.jpa;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.boot.WebApplicationType;
@@ -9,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.badas.badasfoodsql.BadasfoodsqlApplication;
 import com.badas.badasfoodsql.domain.model.Cozinha;
+import com.badas.badasfoodsql.domain.repository.CozinhaRepository;
 
 public class ConsultaCozinhaMain {
 
@@ -17,11 +17,11 @@ public class ConsultaCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CadastroCozinha cadastroCozinha = applicationContest.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhas = applicationContest.getBean(CozinhaRepository.class);
 		
-		List<Cozinha> cozinhas = cadastroCozinha.listar();
+		List<Cozinha> todasCozinhas = cozinhas.todas();
 		
-		for (Cozinha cozinha : cozinhas){
+		for (Cozinha cozinha : todasCozinhas){
 			System.out.println(cozinha.getNome());
 			
 		}
