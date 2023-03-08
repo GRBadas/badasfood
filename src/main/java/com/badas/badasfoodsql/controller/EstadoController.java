@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.badas.badasfoodsql.domain.model.Cozinha;
-import com.badas.badasfoodsql.domain.repository.CozinhaRepository;
+import com.badas.badasfoodsql.domain.model.Estado;
+import com.badas.badasfoodsql.domain.repository.EstadoRepository;
 
 @RestController
-@RequestMapping("/cozinhas")
-public class CozinhaController {
+@RequestMapping("/estados")
+public class EstadoController {
 	
 	@Autowired
-	private CozinhaRepository cozinhaRepository;
+	private EstadoRepository estadoRepository;
 	
 	@GetMapping
-	public List<Cozinha> listar(){
-		return cozinhaRepository.listar();
+	public List<Estado> getAllEstados(){
+		return estadoRepository.findAll();
 	}
 
 }

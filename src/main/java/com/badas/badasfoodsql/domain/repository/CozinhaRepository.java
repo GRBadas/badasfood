@@ -1,14 +1,15 @@
 package com.badas.badasfoodsql.domain.repository;
 
+
 import java.util.List;
 
 import com.badas.badasfoodsql.domain.model.Cozinha;
 
+public interface CozinhaRepository {
 
-public interface CozinhaRepository { 
-	
-	List<Cozinha> todas();
-	Cozinha porId(Long id);
-	Cozinha adicionar(Cozinha cozinha);
+	List<Cozinha> listar();
+	Cozinha buscar(Long id);
+	Cozinha salvar(Cozinha cozinha);
 	void remover(Cozinha cozinha);
+	
 }
