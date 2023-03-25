@@ -1,6 +1,6 @@
 package com.badas.badasfoodsql.jpa;
 
-
+import java.util.List;
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -19,9 +19,11 @@ public class BuscaCozinhaMain {
 		
 		CozinhaRepository cozinhaRepository = applicationContest.getBean(CozinhaRepository.class);
 		
-		Cozinha cozinha = cozinhaRepository.findAll(1L);
+		List<Cozinha> todasCozinhas = cozinhaRepository.listar();		
 		
-		System.out.println(cozinha.getNome());
+		for (Cozinha cozinha : todasCozinhas ) {
+			System.out.println(cozinha.getNome());
+		}
 		
 	}
 }
