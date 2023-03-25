@@ -1,4 +1,4 @@
-package com.badas.badasfoodsql.controller;
+package com.badas.badasfoodsql.api.controller;
 
 import java.util.List;
 
